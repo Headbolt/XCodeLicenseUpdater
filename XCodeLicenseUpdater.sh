@@ -105,7 +105,7 @@ if [[ -n "$License" ]] # Check result, if blank set it to 0
 	then
 		/bin/echo "License Ver = $License"
 	else
-		/bin/echo 'Licnese Missing'
+		/bin/echo 'License Missing'
 		License="0"
 fi
 #

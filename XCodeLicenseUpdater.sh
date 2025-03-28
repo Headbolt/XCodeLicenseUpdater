@@ -18,9 +18,12 @@
 #
 # HISTORY
 #
-#	Version: 1.0 - 28/03/2025
+#	Version: 1.1 - 28/03/2025
 #
 #	28/03/2025 - V1.0 - Created by Headbolt
+#
+#	28/03/2025 - V1.1 - Updated by Headbolt
+#							Updated to include better reporting
 #
 ###############################################################################################################################################
 #
@@ -28,7 +31,7 @@
 #
 ###############################################################################################################################################
 #
-ScriptVer=v1.0
+ScriptVer=v1.1
 ScriptName="Application | XCode License Updater"
 ExitCode=0
 #
@@ -118,7 +121,13 @@ if [[ "$XcodeVers" == "0" ]] # Check App Present
 		if [[ "$License" == "0" ]] # Check License Present
 			then
 				/bin/echo 'App Present but License Missing - Applying License'
+				/bin/echo 'Running Command "'/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -license accept'"'
 				/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -license accept
+				/bin/echo # Outputting a Blank Line for Reporting Purposes
+                /bin/echo 'Running First Launch'
+				/bin/echo 'Running Command "'/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -runFirstLaunch'"'
+				/bin/echo # Outputting a Blank Line for Reporting Purposes
+                /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -runFirstLaunch
 			else
 				if [[ "$License" < "$XcodeVers" ]] # Check if License Version is older than the App Version
 					then
